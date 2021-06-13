@@ -6,21 +6,14 @@ public class Converter {
 	
 	public static void main(String[] args) {
 		
-		run();
-		
-	}
-		
-		// a method for running the program
-		public static void run(){
-		
-		int x = 1;
+		boolean quit = false;
 		
 		do {
 			
 			// Main Menu
 			System.out.println();
 			System.out.println("Please select an option:");
-			System.out.println("[ 1 ] Volume Conversion");
+			System.out.println("[ 1 ] Volume conversion");
 			System.out.println("[ 2 ] Distance Conversion");
 			System.out.println("[ 3 ] Quit");
 			System.out.println();
@@ -28,8 +21,9 @@ public class Converter {
 			Scanner option = new Scanner(System.in);
 			switch(option.nextInt()) {
 			
-			case 1 : // Volume Menu
+			case 1 : // Volume Conversions
 				
+				do {
 				System.out.println();
 				System.out.println("Please select an option:");
 				System.out.println("[ 1 ] Cups to Teaspoons");
@@ -38,11 +32,9 @@ public class Converter {
 				System.out.println("[ 4 ] Quit");
 				System.out.println();
 				
-				Scanner nextOption = new Scanner(System.in);
+				switch(option.nextInt()) {
 				
-				switch(nextOption.nextInt()) {
-				
-					case 1 : // cups to teaspoons
+					case 1 : 
 						System.out.println();
 						System.out.println("Please enter the amount of cups you would like to convert to teaspoons:");
 						System.out.println();
@@ -50,7 +42,7 @@ public class Converter {
 						convertCupsToTeaspoons(cups.nextDouble());
 						break;
 					
-					case 2 : // teaspoons to cups
+					case 2 :
 						System.out.println();
 						System.out.println("Please enter the amount of teaspoons you would like to convert to cups:");
 						System.out.println();
@@ -58,27 +50,27 @@ public class Converter {
 						convertTeaspoonsToCups(teaspoons.nextDouble());
 						break;
 					
-					case 3 : // US Gallons to Imperial Gallons
+					case 3 :
 						System.out.println();
 						System.out.println("Please enter the amount of US Gallons you would like to convert to Imperial Gallons:");
 						System.out.println();
 						Scanner USGallons = new Scanner(System.in);
-						convertUSGallonsToImperialGallons(USGallons.nextDouble());
+						convertTeaspoonsToCups(USGallons.nextDouble());
 						break;
 					
-					case 4 : // exiting from the volume menu
+					case 4 :
 						System.out.println();
 						System.out.println("Thank you! Have a good day.");
-						x++;
+						quit = true;
 						break;
 					
-					default : // error message from the volume menu
+					default :
 						System.out.println();
 						System.out.println("Sorry! Please try again.");
 					
-					} break;
+					} break; } while(quit);
 					
-			case 2 : // Distance Menu
+			case 2 : // Distance conversions
 				System.out.println();
 				System.out.println("Please select an option:");
 				System.out.println("[ 1 ] Feet to Meters");
@@ -88,7 +80,7 @@ public class Converter {
 				
 				switch(option.nextInt()) {
 				
-					case 1 : // feet to meters
+					case 1 : 
 						System.out.println();
 						System.out.println("Please enter the amount of feet you would like to convert to meters:");
 						System.out.println();
@@ -96,39 +88,39 @@ public class Converter {
 						convertFeetToMeters(feet.nextDouble());
 						break;
 						
-					case 2 : // miles to kilometers
+					case 2 :
 						System.out.println();
 						System.out.println("Please enter the amount of miles you would like to convert to kilometers:");
 						System.out.println();
 						Scanner miles = new Scanner(System.in);
-						convertMilesToKilometers(miles.nextDouble());
+						convertFeetToMeters(miles.nextDouble());
 						break;
 						
-					case 3 : // exiting from the distance menu
+					case 3 :
 						System.out.println();
 						System.out.println("Thank you! Have a good day.");
-						x++;
+						quit = true;
 						break;
 						
-					default : // error message from the distance menu
+					default :
 						System.out.println();
 						System.out.println("Sorry! Please try again.");
 						
 				} break;
 				
-			case 3 : // exiting from the main menu
+			case 3 :
 				System.out.println();
 				System.out.println("Thank you! Have a good day.");
-				x++;
+				quit = true;
 				break;
 		
-			default : // error message from the main menu
+			default :
 				System.out.println();
 				System.out.println("Sorry! Please try again.");
 			
 				}
 			
-			}while(x==1);
+			}while(quit);
 		
 		}
 	
@@ -156,7 +148,7 @@ public class Converter {
 	
 		}
 	
-	public static void convertUSGallonsToImperialGallons(double gallons) {
+public static void convertUSGallonsToImperialGallons(double gallons) {
 		
 		System.out.println();
 		double ImperialGallons = gallons * 0.833;
@@ -182,5 +174,47 @@ public class Converter {
 		}
 	
 	
+//	System.out.println();
+//	System.out.println("Please select an option:");
+//	System.out.println("[ 1 ] Cups to Teaspoons");
+//	System.out.println("[ 2 ] Miles to Kilometers");
+//	System.out.println("[ 3 ] US Gallons to Imperial Gallons");
+//	System.out.println("[ 4 ] Quit");
+//	System.out.println();
+	
+	//switch(option.nextInt()) {
+//	
+	
+//		
+//	case 2 :
+//		System.out.println();
+//		System.out.println("Please enter the number of miles you would like to convert:");
+//		System.out.println();
+//		Scanner miles = new Scanner(System.in);
+//		convertMilesToKilometers(miles.nextDouble());
+//		//number.close();
+//		break;
+//	
+//	case 3 :
+//		System.out.println();
+//		System.out.println("Please enter the amount of US gallons you would like to convert:");
+//		System.out.println();
+//		Scanner gallons = new Scanner(System.in);
+//		convertUSGallonsToImperialGallons(gallons.nextDouble());
+//		//gallons.close();
+//		break;
+//		
+//	case 4 :
+//		System.out.println();
+//		System.out.println("Thank you! Have a good day.");
+//		x++;
+//		break;
+//		
+//	default :
+//		System.out.println();
+//		System.out.println("Sorry! Please try again.");
+//		
+//		}
+//	
 		
 	}
